@@ -1,4 +1,5 @@
 import * as Util from "./util";
+import * as XEvent from "./event";
 
 class Test1{
     constructor(){
@@ -23,6 +24,9 @@ function test( state:boolean ){
     let test2 = new Test2( state );
     let s:string = Util.createClassName( test2, test1 );
     console.log( "test = " + s );
+
+    let obj1 = new XEvent.Event();
+    obj1.onDoubleClicked( 1, 1, 1 );
 }
 
 test(true);
