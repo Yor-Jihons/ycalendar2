@@ -1,0 +1,55 @@
+/*
+    @license
+    Copyright (c) 2022 Yor-Jihons
+    Released under the MIT license.
+    https://github.com/Yor-Jihons/ycalendar2/blob/main/ycalendar2/LICENSE
+*/
+
+
+
+/*
+    The title for the ycalendar, which is written like "2022/2".
+*/
+h2#yc_title{
+    text-align: center;
+    margin: 0 auto;
+    color: yellow;
+    padding: 10px 10px 10px 10px;
+}
+
+/*
+    The table for the ycalendar, which has cells.
+*/
+table#yc_table{
+    margin: 0 auto;
+    border-collapse: collapse;
+}
+
+/*
+    The header of the ycalendar table, which is like { Sun, Mon, Tues, ... }.
+*/
+th.yc_table_header{
+    background-color: yellow;
+    border: 1px solid black;
+    width: 50px;
+    text-align: center;
+}
+
+/*
+    The cells which is normal.
+*/
+td.yc_unchecked_day{
+    border: 1px solid black;
+    width: 50px;
+    text-align: center;
+}
+
+/*
+    The cells which is checked.
+*/
+td.yc_checked_day{
+    background-color: lightgreen;
+    border: 1px solid black;
+    width: 50px;
+    text-align: center;
+}
