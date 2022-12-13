@@ -1,0 +1,15 @@
+/*
+    @license
+    Copyright (c) 2022 Yor-Jihons
+    Released under the MIT license.
+    https://github.com/Yor-Jihons/ycalendar/blob/main/ycalendar/LICENSE
+*/
+
+@charset "UTF-8";
+
+/*
+* Append the css to the body tag.
+*/
+body{
+    background-color: gray;
+}

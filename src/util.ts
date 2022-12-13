@@ -1,4 +1,13 @@
 /**
+* @file
+* @license
+* Copyright (c) 2022 Yor-Jihons
+* Released under the MIT license.
+* https://github.com/Yor-Jihons/ycalendar2/blob/main/ycalendar2/LICENSE
+*/
+
+
+/**
 * To create the class name string for the cells.
 * @param {*} checkedDateList The DateEx list you want to check.
 * @param {*} targetDate The object of the class DateEx you want to check.
