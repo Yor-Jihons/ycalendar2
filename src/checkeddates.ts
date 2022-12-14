@@ -51,7 +51,7 @@ export class CheckedDate{
 
 
 /**
-* The class to manage the CheckedDateEx.
+* The class to manage the CheckedDate.
 */
 export class CheckedDateList{
     /**
