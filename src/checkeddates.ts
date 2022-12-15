@@ -31,7 +31,7 @@ export class CheckedDate{
     * @param {*} d The object of the class Date.
     * @returns Returns true if d is same, otherwise returns false.
     */
-    equals( d:CheckedDate ){
+    equals( d:CheckedDate ): boolean{
         if( this._date.getFullYear() == d._date.getFullYear()
         && this._date.getMonth() == d._date.getMonth()
         && this._date.getDate() == d._date.getDate() ) return true;
@@ -42,7 +42,7 @@ export class CheckedDate{
     *  Make a string to print.
     * @returns The string for the date.
     */
-    toString(){
+    toString(): string{
         return this._date.toDateString();
     }
 };
@@ -70,14 +70,14 @@ export class CheckedDateList{
     * Add an object of the class CheckedDate.
     * @param {*} d An object of the class CheckedDate.
     */
-    add( d:CheckedDate ){
+    add( d:CheckedDate ): void{
         this._checkedDates.push( d );
     }
 
     /**
     * Clear the array this object manages.
     */
-    clear(){
+    clear(): void{
         this._checkedDates.splice( 0 );
     }
 
@@ -86,7 +86,7 @@ export class CheckedDateList{
     * @param {*} target the object of the class CheckedDate, which you want to search.
     * @returns Returns the object of the CheckedDate if this object has, otherwise returns null.
     */
-    at( target:CheckedDate ){
+    at( target:CheckedDate ): CheckedDate|null{
         for( let i = 0; i < this._checkedDates.length; i++ ){
             if( this._checkedDates[i].equals( target ) == true ){
                 return this._checkedDates[i];
@@ -100,14 +100,14 @@ export class CheckedDateList{
     * @param {*} target the object of the class CheckedDate, which you want to search.
     * @returns Returns true if this object has the target, otherwise return false.
     */
-    has( target:CheckedDate ){
+    has( target:CheckedDate ): boolean{
         return(this.at( target ) == null ? false : true);
     }
 
     /**
     * Print to debug.
     */
-    print(){
+    print(): void{
         var txt = "";
         for( let i = 0; i < this._checkedDates.length; i++ ){
             txt += this._checkedDates[i].toString() + "\n";
