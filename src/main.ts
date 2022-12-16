@@ -1,6 +1,7 @@
 import * as Util from "./util";
 import * as XEvent from "./event";
 import * as CheckedDates from "./checkeddates";
+import * as ycalendars from "./ycalendar";
 
 class Test1{
     constructor(){
