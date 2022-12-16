@@ -27,16 +27,16 @@ export class TableCreator{
 
     /**
     * Create the title html text for ycalendar.
-    * @param {*} prevDate The object of the class Date as a previous manth.
-    * @param {*} mainDate The object of the class Date as a this manth.
-    * @param {*} nextDate The object of the class Date as a next manth.
+    * @param prevDate The object of the class Date as a previous manth.
+    * @param mainDate The object of the class Date as a this manth.
+    * @param nextDate The object of the class Date as a next manth.
     * @returns The html string as a title.
     */
     createTitleHTMLString( prevDate:Date, mainDate:Date, nextDate:Date ): string{
         var titleHtml = "";
-        titleHtml += '<h2 id="yc_title"><a title="' + prevDate.getFullYear() + '/' + (prevDate.getMonth() + 1) + '" onclick="window.YCalendars.prevButton_Click(' + prevDate.getFullYear() + ', ' + prevDate.getMonth() + ')">?</a> ';
+        titleHtml += '<h2 id="yc_title"><a title="' + prevDate.getFullYear() + '/' + (prevDate.getMonth() + 1) + '" onclick="YCalendar2.ycalendar_prevButton_Click(' + prevDate.getFullYear() + ', ' + prevDate.getMonth() + ')">◀</a> ';
         titleHtml += mainDate.getFullYear() + '/' + (mainDate.getMonth() + 1);
-        titleHtml += ' <a title="' + nextDate.getFullYear() + '/' + (nextDate.getMonth() + 1) + '" onclick="window.YCalendars.nextButton_Click(' + nextDate.getFullYear() + ', ' + nextDate.getMonth() + ')">?</a></h2>';
+        titleHtml += ' <a title="' + nextDate.getFullYear() + '/' + (nextDate.getMonth() + 1) + '" onclick="YCalendar2.ycalendar_nextButton_Click(' + nextDate.getFullYear() + ', ' + nextDate.getMonth() + ')">▶</a></h2>';
     return titleHtml;
     }
 
@@ -55,7 +55,7 @@ export class TableCreator{
 
     /**
     * Create the empty cells for the table of yalendar.
-    * @param {*} max The max number of cells.
+    * @param max The max number of cells.
     * @returns The html string as an empty cell.
     */
     createEmptyCells( max:number ): string{
@@ -70,9 +70,9 @@ export class TableCreator{
 
     /**
     * Create the cell which has number (as a calendar).
-    * @param {*} mainDate The object of the class Date.
-    * @param {*} lastDayInMonth The number of the date which this manth has.
-    * @param {*} checkedDateList The object of the class CheckedDateList, for coloring cells.
+    * @param mainDate The object of the class Date.
+    * @param lastDayInMonth The number of the date which this manth has.
+    * @param checkedDateList The object of the class CheckedDateList, for coloring cells.
     * @returns The html string as a number cell.
     */
     createMainCells( mainDate:Date, lastDayInMonth:number, checkedDateList:CheckedDates.CheckedDateList ): string{
@@ -80,7 +80,7 @@ export class TableCreator{
         for( var i = 0; i < lastDayInMonth; i++ ){
             const classname = Util.createClassName( checkedDateList, new CheckedDates.CheckedDate( mainDate.getFullYear(), mainDate.getMonth(), i + 1 ) );
             txt += '<td class="' + classname + '">';
-            txt += '<div ondblclick="window.YCalendars.ycalender_DoubleClick(' + mainDate.getFullYear() + ',' + (mainDate.getMonth() + 1) + ',' + (i + 1) + ')">';
+            txt += '<div ondblclick="YCalendar2.ycalender_DoubleClick(' + mainDate.getFullYear() + ',' + (mainDate.getMonth() + 1) + ',' + (i + 1) + ')">';
             txt += (i + 1);
             txt += '</div>';
             txt += '</td>';

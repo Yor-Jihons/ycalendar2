@@ -18,9 +18,9 @@ export class CheckedDate{
 
     /**
     * The constructor.
-    * @param {*} year The year.
-    * @param {*} month The month.
-    * @param {*} day The date.
+    * @param year The year.
+    * @param month The month.
+    * @param day The date.
     */
     constructor( year:number, month:number, day:number ){
         this._date = new Date( year, month, day, 1, 1, 1, 1 );
@@ -28,7 +28,7 @@ export class CheckedDate{
 
     /**
     * Check whether date is same or not.
-    * @param {*} d The object of the class Date.
+    * @param  d The object of the class Date.
     * @returns Returns true if d is same, otherwise returns false.
     */
     equals( d:CheckedDate ): boolean{
@@ -68,7 +68,7 @@ export class CheckedDateList{
 
     /**
     * Add an object of the class CheckedDate.
-    * @param {*} d An object of the class CheckedDate.
+    * @param d An object of the class CheckedDate.
     */
     add( d:CheckedDate ): void{
         this._checkedDates.push( d );
@@ -83,7 +83,7 @@ export class CheckedDateList{
 
     /**
     * Get the object of the class CheckedDate.
-    * @param {*} target the object of the class CheckedDate, which you want to search.
+    * @param target the object of the class CheckedDate, which you want to search.
     * @returns Returns the object of the CheckedDate if this object has, otherwise returns null.
     */
     at( target:CheckedDate ): CheckedDate|null{
@@ -97,7 +97,7 @@ export class CheckedDateList{
 
     /**
     * Check whether this object has the target date or not.
-    * @param {*} target the object of the class CheckedDate, which you want to search.
+    * @param target the object of the class CheckedDate, which you want to search.
     * @returns Returns true if this object has the target, otherwise return false.
     */
     has( target:CheckedDate ): boolean{
