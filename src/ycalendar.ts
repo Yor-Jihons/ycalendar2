@@ -31,7 +31,7 @@ export class YCalendar2{
 
     /**
     * The setter for the event.
-    * @param {*} yc_event The object of a class, which is derived from the class YC_Event, to use some events.
+    * @param yc_event The object of a class, which is derived from the class YC_Event, to use some events.
     */
     setEvent( yc_event:any ): void{
         this._event = yc_event;
@@ -47,8 +47,8 @@ export class YCalendar2{
 
     /**
     * Draw the ycalendar.
-    * @param {*} date The object of the class Date.
-    * @param {*} checkedDateList The object of the class CheckedDateList. You can pass null.
+    * @param date The object of the class Date.
+    * @param checkedDateList The object of the class CheckedDateList. You can pass null.
     */
     draw( date:Date ): void{
         let prevDate = new Date( date.getFullYear(), date.getMonth(), date.getDate() );
@@ -84,9 +84,9 @@ export class YCalendar2{
 
     /**
     * The method for the double-click event.
-    * @param {*} year 
-    * @param {*} month 
-    * @param {*} day 
+    * @param year The target year.
+    * @param month The target month.
+    * @param day The target date.
     */
     onDoubleClicked( year:number, month:number, day:number ){
         if( this._event != null ){
@@ -101,12 +101,12 @@ export class YCalendar2{
 */
 let calendar_area:any = document.getElementById( "ycalendar2" );
 
-let ycalendar2 = new YCalendar2();
+export let ycalendar2 = new YCalendar2();
 
 /**
 * The event for prevButton click.
-* @param {*} year The target year.
-* @param {*} month The target month.
+* @param year The target year.
+* @param month The target month.
 */
 export function ycalendar_prevButton_Click( year:number, month:number ): void{
     ycalendar2.draw( new Date( year, month, 1 ) );
@@ -114,8 +114,8 @@ export function ycalendar_prevButton_Click( year:number, month:number ): void{
 
 /**
 * The event for nextButton click.
-* @param {*} year The target year.
-* @param {*} month The target month.
+* @param year The target year.
+* @param month The target month.
 */
 export function ycalendar_nextButton_Click( year:number, month:number ): void{
     ycalendar2.draw( new Date( year, month, 1 ) );
@@ -123,9 +123,9 @@ export function ycalendar_nextButton_Click( year:number, month:number ): void{
 
 /**
 * The event for the cells doubleclick.
-* @param {*} year The target year.
-* @param {*} month The target month.
-* @param {*} day The target date.
+* @param year The target year.
+* @param month The target month.
+* @param day The target date.
 */
 export function ycalender_DoubleClick( year:number, month:number, day:number ): void{
     ycalendar2.onDoubleClicked( year, month, day );
