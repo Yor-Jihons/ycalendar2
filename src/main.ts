@@ -40,6 +40,7 @@ test(true);
 // 1. The inteface definition so that the users can use.
 interface YCalendar2{
     YEvent: any;
+    DateEx: any;
     CheckedDate: any;
     CheckedDateList: any;
     drawYcalendar( date:Date, checkedDateList:any, event:any ): void;
@@ -58,6 +59,12 @@ declare global {
 const YCalendar2: YCalendar2 = (() =>{
     return {
         YEvent: class extends XEvent.Event{},
+
+        DateEx: class extends CheckedDates.DateEx{
+            constructor( year:number, month:number, day:number ){
+                super( year, month, day );
+            }
+        },
 
         CheckedDate: class extends CheckedDates.CheckedDate{
             constructor( year:number, month:number, day:number ){
