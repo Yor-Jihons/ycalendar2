@@ -23,7 +23,7 @@ export class CheckedDate{
     * @param day The date.
     */
     constructor( year:number, month:number, day:number ){
-        this._date = new Date( year, month, day, 1, 1, 1, 1 );
+        this._date = new Date( year, month - 1, day, 1, 1, 1, 1 );
     }
 
     /**
