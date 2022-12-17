@@ -7,7 +7,7 @@
 */
 
 import * as TableCreation from "./tablecreation";
-
+import * as CheckedDates from "./checkeddates";
 
 
 
@@ -50,33 +50,33 @@ export class YCalendar2{
     * @param date The object of the class Date.
     * @param checkedDateList The object of the class CheckedDateList. You can pass null.
     */
-    draw( date:Date ): void{
-        let prevDate = new Date( date.getFullYear(), date.getMonth() + 1, date.getDate() );
-
-        let mainDate_first = new Date( date.getFullYear(), date.getMonth(), 1 );
-        let mainDate_last  = new Date( date.getFullYear(), date.getMonth(), 0 );
-
-        let nextDate = new Date( date.getFullYear(), date.getMonth(), date.getDate() );
-        nextDate.setMonth( date.getMonth() + 1 );
-
+    draw( date:CheckedDates.DateEx ): void{
+        let prevDate = new CheckedDates.DateEx( date.getFullYear(), date.getMonth() - 1, date.getDate() );
+console.log( "prevDate: " + prevDate.toDateString() );
+        let mainDate_first = date;
+        let mainDate_last  = date.createLastDateEx();
+console.log( "mainDate_first: " + mainDate_first.toDateString() );
+console.log( "mainDate_last: " + mainDate_last.toDateString() );
+        let nextDate = new CheckedDates.DateEx( date.getFullYear(), date.getMonth() + 1, date.getDate() );
+console.log( "nextDate: " + nextDate.toDateString() );
         const tableCreator = new TableCreation.TableCreator();
 
         let htmlText = "";
-        htmlText += tableCreator.createTitleHTMLString( prevDate, mainDate_first, nextDate );
+        //htmlText += tableCreator.createTitleHTMLString( prevDate, mainDate_first, nextDate );
 
         htmlText += tableCreator.createTableHeaderHtmlString();
 
-        const NUM_OF_EMPTY_CELL = mainDate_first.getDay();
-        htmlText += tableCreator.createEmptyCells( NUM_OF_EMPTY_CELL );
+        //const NUM_OF_EMPTY_CELL = mainDate_first.getDay();
+        //htmlText += tableCreator.createEmptyCells( NUM_OF_EMPTY_CELL );
 
         const lastDayInMonth   = mainDate_last.getDate();
-        htmlText += tableCreator.createMainCells( mainDate_first, lastDayInMonth, this._checkedDateList );
+        //htmlText += tableCreator.createMainCells( mainDate_first, lastDayInMonth, this._checkedDateList );
 
         const MAX_CELL       = 42;
-        let num_of_tail_cell = MAX_CELL - (NUM_OF_EMPTY_CELL + lastDayInMonth);
-        htmlText += tableCreator.createEmptyCells( num_of_tail_cell );
+        //let num_of_tail_cell = MAX_CELL - (NUM_OF_EMPTY_CELL + lastDayInMonth);
+        //htmlText += tableCreator.createEmptyCells( num_of_tail_cell );
 
-        htmlText += tableCreator.createTableFooterHtmlString();
+        //htmlText += tableCreator.createTableFooterHtmlString();
 
         calendar_area.innerHTML = htmlText;
     }
@@ -108,7 +108,7 @@ export let ycalendar2 = new YCalendar2();
 * @param month The target month.
 */
 export function ycalendar_prevButton_Click( year:number, month:number ): void{
-    ycalendar2.draw( new Date( year, month, 1 ) );
+    ycalendar2.draw( new CheckedDates.DateEx( year, month, 1 ) );
 }
 
 /**
@@ -117,7 +117,7 @@ export function ycalendar_prevButton_Click( year:number, month:number ): void{
 * @param month The target month.
 */
 export function ycalendar_nextButton_Click( year:number, month:number ): void{
-    ycalendar2.draw( new Date( year, month, 1 ) );
+    ycalendar2.draw( new CheckedDates.DateEx( year, month, 1 ) );
 }
 
 /**
