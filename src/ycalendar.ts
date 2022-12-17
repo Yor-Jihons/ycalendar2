@@ -51,8 +51,7 @@ export class YCalendar2{
     * @param checkedDateList The object of the class CheckedDateList. You can pass null.
     */
     draw( date:Date ): void{
-        let prevDate = new Date( date.getFullYear(), date.getMonth(), date.getDate() );
-        prevDate.setMonth( date.getMonth() - 1 );
+        let prevDate = new Date( date.getFullYear(), date.getMonth() + 1, date.getDate() );
 
         let mainDate_first = new Date( date.getFullYear(), date.getMonth(), 1 );
         let mainDate_last  = new Date( date.getFullYear(), date.getMonth(), 0 );

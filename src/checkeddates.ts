@@ -7,6 +7,29 @@
 */
 
 
+export class DateEx{
+    private _date:Date;
+    constructor( year:number, month:number, date:number ){
+        this._date = new Date( year, month - 1, date, 1, 1, 1, 1 );
+    }
+
+    getFullYear():number{
+        return this._date.getFullYear();
+    }
+
+    getMonth():number{
+        return this._date.getMonth() + 1;
+    }
+
+    getDate():number{
+        return this._date.getDate();
+    }
+
+    toDateString(): string{
+        return this._date.toDateString();
+    }
+}
+
 /**
 * The class to put other color as the checked dates, like a schedule.
 */
@@ -14,7 +37,7 @@ export class CheckedDate{
     /**
     * The target date.
     */
-    private _date: Date;
+    private _date: DateEx;
 
     /**
     * The constructor.
@@ -23,7 +46,7 @@ export class CheckedDate{
     * @param day The date.
     */
     constructor( year:number, month:number, day:number ){
-        this._date = new Date( year, month - 1, day, 1, 1, 1, 1 );
+        this._date = new DateEx( year, month, day );
     }
 
     /**
