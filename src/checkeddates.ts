@@ -33,6 +33,18 @@ export class DateEx{
         return this._date.toDateString();
     }
 
+    /**
+    * Check whether date is same or not.
+    * @param  d The object of the class Date.
+    * @returns Returns true if d is same, otherwise returns false.
+    */
+    equals( d:DateEx ): boolean{
+        if( this._date.getFullYear() == d._date.getFullYear()
+        && this._date.getMonth() == d._date.getMonth()
+        && this._date.getDate() == d._date.getDate() ) return true;
+    return false;
+    }
+
     createLastDateEx(): DateEx{
         let tmp = new Date( this._date.getFullYear(), this._date.getMonth() + 1, 0 );
     return new DateEx( tmp.getFullYear(), tmp.getMonth() + 1, tmp.getDate() );
@@ -42,32 +54,24 @@ export class DateEx{
 /**
 * The class to put other color as the checked dates, like a schedule.
 */
-export class CheckedDate{
-    /**
-    * The target date.
-    */
-    private _date: DateEx;
-
+export class CheckedDate extends DateEx{
     /**
     * The constructor.
     * @param year The year.
     * @param month The month.
-    * @param day The date.
+    * @param date The date.
     */
-    constructor( year:number, month:number, day:number ){
-        this._date = new DateEx( year, month, day );
+    constructor( year:number, month:number, date:number ){
+        super( year, month, date );
     }
 
     /**
     * Check whether date is same or not.
-    * @param  d The object of the class Date.
+    * @param  d The object of the class CheckedDate.
     * @returns Returns true if d is same, otherwise returns false.
     */
     equals( d:CheckedDate ): boolean{
-        if( this._date.getFullYear() == d._date.getFullYear()
-        && this._date.getMonth() == d._date.getMonth()
-        && this._date.getDate() == d._date.getDate() ) return true;
-    return false;
+        return super.equals( d );
     }
 
     /**
@@ -75,7 +79,7 @@ export class CheckedDate{
     * @returns The string for the date.
     */
     toString(): string{
-        return this._date.toDateString();
+        return super.toDateString();
     }
 };
 
