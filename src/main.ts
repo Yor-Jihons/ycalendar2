@@ -61,14 +61,14 @@ const YCalendar2: YCalendar2 = (() =>{
         YEvent: class extends XEvent.Event{},
 
         DateEx: class extends CheckedDates.DateEx{
-            constructor( year:number, month:number, day:number ){
-                super( year, month, day );
+            constructor( year:number, month:number, date:number ){
+                super( year, month, date );
             }
         },
 
         CheckedDate: class extends CheckedDates.CheckedDate{
-            constructor( year:number, month:number, day:number ){
-                super( year, month, day );
+            constructor( year:number, month:number, date:number ){
+                super( year, month, date );
             }
         },
 
