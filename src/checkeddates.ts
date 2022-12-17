@@ -25,6 +25,10 @@ export class DateEx{
         return this._date.getDate();
     }
 
+    getDay():number{
+        return this._date.getDay();
+    }
+
     toDateString(): string{
         return this._date.toDateString();
     }

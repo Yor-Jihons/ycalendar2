@@ -52,31 +52,30 @@ export class YCalendar2{
     */
     draw( date:CheckedDates.DateEx ): void{
         let prevDate = new CheckedDates.DateEx( date.getFullYear(), date.getMonth() - 1, date.getDate() );
-console.log( "prevDate: " + prevDate.toDateString() );
+
         let mainDate_first = date;
         let mainDate_last  = date.createLastDateEx();
-console.log( "mainDate_first: " + mainDate_first.toDateString() );
-console.log( "mainDate_last: " + mainDate_last.toDateString() );
+
         let nextDate = new CheckedDates.DateEx( date.getFullYear(), date.getMonth() + 1, date.getDate() );
-console.log( "nextDate: " + nextDate.toDateString() );
+
         const tableCreator = new TableCreation.TableCreator();
 
         let htmlText = "";
-        //htmlText += tableCreator.createTitleHTMLString( prevDate, mainDate_first, nextDate );
+        htmlText += tableCreator.createTitleHTMLString( prevDate, mainDate_first, nextDate );
 
         htmlText += tableCreator.createTableHeaderHtmlString();
 
-        //const NUM_OF_EMPTY_CELL = mainDate_first.getDay();
-        //htmlText += tableCreator.createEmptyCells( NUM_OF_EMPTY_CELL );
+        const NUM_OF_EMPTY_CELL = mainDate_first.getDay();
+        htmlText += tableCreator.createEmptyCells( NUM_OF_EMPTY_CELL );
 
         const lastDayInMonth   = mainDate_last.getDate();
-        //htmlText += tableCreator.createMainCells( mainDate_first, lastDayInMonth, this._checkedDateList );
+        htmlText += tableCreator.createMainCells( mainDate_first, lastDayInMonth, this._checkedDateList );
 
         const MAX_CELL       = 42;
-        //let num_of_tail_cell = MAX_CELL - (NUM_OF_EMPTY_CELL + lastDayInMonth);
-        //htmlText += tableCreator.createEmptyCells( num_of_tail_cell );
+        let num_of_tail_cell = MAX_CELL - (NUM_OF_EMPTY_CELL + lastDayInMonth);
+        htmlText += tableCreator.createEmptyCells( num_of_tail_cell );
 
-        //htmlText += tableCreator.createTableFooterHtmlString();
+        htmlText += tableCreator.createTableFooterHtmlString();
 
         calendar_area.innerHTML = htmlText;
     }

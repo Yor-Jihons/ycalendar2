@@ -32,11 +32,11 @@ export class TableCreator{
     * @param nextDate The object of the class Date as a next manth.
     * @returns The html string as a title.
     */
-    createTitleHTMLString( prevDate:Date, mainDate:Date, nextDate:Date ): string{
+    createTitleHTMLString( prevDate:CheckedDates.DateEx, mainDate:CheckedDates.DateEx, nextDate:CheckedDates.DateEx ): string{
         var titleHtml = "";
-        titleHtml += '<h2 id="yc_title"><a title="' + prevDate.getFullYear() + '/' + (prevDate.getMonth() + 1) + '" onclick="YCalendar2.ycalendar_prevButton_Click(' + prevDate.getFullYear() + ', ' + prevDate.getMonth() + ')">◀</a> ';
-        titleHtml += mainDate.getFullYear() + '/' + (mainDate.getMonth() + 1);
-        titleHtml += ' <a title="' + nextDate.getFullYear() + '/' + (nextDate.getMonth() + 1) + '" onclick="YCalendar2.ycalendar_nextButton_Click(' + nextDate.getFullYear() + ', ' + nextDate.getMonth() + ')">▶</a></h2>';
+        titleHtml += '<h2 id="yc_title"><a title="' + prevDate.getFullYear() + '/' + prevDate.getMonth() + '" onclick="YCalendar2.ycalendar_prevButton_Click(' + prevDate.getFullYear() + ', ' + prevDate.getMonth() + ')">◀</a> ';
+        titleHtml += mainDate.getFullYear() + '/' + mainDate.getMonth();
+        titleHtml += ' <a title="' + nextDate.getFullYear() + '/' + nextDate.getMonth() + '" onclick="YCalendar2.ycalendar_nextButton_Click(' + nextDate.getFullYear() + ', ' + nextDate.getMonth() + ')">▶</a></h2>';
     return titleHtml;
     }
 
@@ -75,7 +75,7 @@ export class TableCreator{
     * @param checkedDateList The object of the class CheckedDateList, for coloring cells.
     * @returns The html string as a number cell.
     */
-    createMainCells( mainDate:Date, lastDayInMonth:number, checkedDateList:CheckedDates.CheckedDateList ): string{
+    createMainCells( mainDate:CheckedDates.DateEx, lastDayInMonth:number, checkedDateList:CheckedDates.CheckedDateList ): string{
         let txt = "";
         for( var i = 0; i < lastDayInMonth; i++ ){
             const classname = Util.createClassName( checkedDateList, new CheckedDates.CheckedDate( mainDate.getFullYear(), mainDate.getMonth(), i + 1 ) );
