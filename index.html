@@ -48,19 +48,19 @@
 
     <script>
         // 3. You draw the calendar simply. (If you want a simple calendar.)
-        YCalendar2.drawYcalendar( new YCalendar2.DateEx( 2022, 12, 1 ), null, null );
+        //YCalendar2.drawYcalendar( new YCalendar2.DateEx( 2022, 12, 1 ), null, null );
 
         // 4. Create an object of the class CheckedDateList if you want the double-click event.
-        //let checkedDateList = new YCalendar2.CheckedDateList();
-        //checkedDateList.add( new YCalendar2.CheckedDate( 2022, 12, 16 ) );
+        let checkedDateList = new YCalendar2.CheckedDateList();
+        checkedDateList.add( new YCalendar2.CheckedDate( 2022, 12, 16 ) );
 
         // You can clear the dates in the CheckedDateList.
-        // checkedDateList.clear();
+        //checkedDateList.clear();
 
-        //let event = new YEventEx();
+        let event = new YEventEx();
 
         // 6. You draw the calenadar.
-        //YCalendar2.drawYcalendar( new YCalendar2.DateEx( 2022, 12, 1 ), checkedDateList, event );
+        YCalendar2.drawYcalendar( new YCalendar2.DateEx( 2022, 12, 1 ), checkedDateList, event );
 
 
         let obj = new YCalendar2.DateEx( 2022, 12, 2 );
