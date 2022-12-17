@@ -8,34 +8,64 @@
 
 
 export class DateEx{
+    /**
+    * The object of the class Date, which this object manages.
+    */
     private _date:Date;
+
+    /**
+    * Contructor
+    * @param year The year the user want to manage.
+    * @param month The month the user want to manage.
+    * @param date The date the user want to manage.
+    */
     constructor( year:number, month:number, date:number ){
         this._date = new Date( year, month - 1, date, 1, 1, 1, 1 );
     }
 
+    /**
+    * Get the year this object managed.
+    * @returns The year this object managed.
+    */
     getFullYear():number{
         return this._date.getFullYear();
     }
 
+    /**
+    * Get the month this object managed.
+    * @returns The month this object managed.
+    */
     getMonth():number{
         return this._date.getMonth() + 1;
     }
 
+    /**
+    * Get the date this object managed.
+    * @returns The date this object managed.
+    */
     getDate():number{
         return this._date.getDate();
     }
 
+    /**
+    * Get the day of the week this object managed.
+    * @returns The day of the week this object managed.
+    */
     getDay():number{
         return this._date.getDay();
     }
 
+    /**
+    * Create the string for the date.
+    * @returns The string for the date which this object managed.
+    */
     toDateString(): string{
         return this._date.toDateString();
     }
 
     /**
     * Check whether date is same or not.
-    * @param  d The object of the class Date.
+    * @param  d The object of the class DateEx.
     * @returns Returns true if d is same, otherwise returns false.
     */
     equals( d:DateEx ): boolean{
@@ -45,6 +75,10 @@ export class DateEx{
     return false;
     }
 
+    /**
+    * Create the object of this class, which means the end of the month.
+    * @returns The object of this class, which means the end of the month.
+    */
     createLastDateEx(): DateEx{
         let tmp = new Date( this._date.getFullYear(), this._date.getMonth() + 1, 0 );
     return new DateEx( tmp.getFullYear(), tmp.getMonth() + 1, tmp.getDate() );

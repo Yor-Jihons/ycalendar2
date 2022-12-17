@@ -1,37 +1,15 @@
-import * as Util from "./util";
+/**
+* @file
+* @license
+* Copyright (c) 2022 Yor-Jihons
+* Released under the MIT license.
+* https://github.com/Yor-Jihons/ycalendar2/blob/main/ycalendar2/LICENSE
+*/
+
 import * as XEvent from "./event";
 import * as CheckedDates from "./checkeddates";
 import * as ycalendars from "./ycalendar";
 
-class Test1{
-    constructor(){
-        
-    }
-}
-
-class Test2{
-    state:boolean;
-    constructor(state:boolean){
-        this.state = state;
-    }
-
-    has( obj:any ){
-        return this.state;
-    }
-}
-
-
-function test( state:boolean ){
-    let test1 = new Test1();
-    let test2 = new Test2( state );
-    let s:string = Util.createClassName( test2, test1 );
-    console.log( "test = " + s );
-
-    let obj1 = new XEvent.Event();
-    obj1.onDoubleClicked( 1, 1, 1 );
-}
-
-test(true);
 
 // ---------------------------------------------------
 // HTMLからも使えるようにする
@@ -61,14 +39,14 @@ const YCalendar2: YCalendar2 = (() =>{
         YEvent: class extends XEvent.Event{},
 
         DateEx: class extends CheckedDates.DateEx{
-            constructor( year:number, month:number, day:number ){
-                super( year, month, day );
+            constructor( year:number, month:number, date:number ){
+                super( year, month, date );
             }
         },
 
         CheckedDate: class extends CheckedDates.CheckedDate{
-            constructor( year:number, month:number, day:number ){
-                super( year, month, day );
+            constructor( year:number, month:number, date:number ){
+                super( year, month, date );
             }
         },
 

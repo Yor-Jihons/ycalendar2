@@ -27,9 +27,9 @@ export class TableCreator{
 
     /**
     * Create the title html text for ycalendar.
-    * @param prevDate The object of the class Date as a previous manth.
-    * @param mainDate The object of the class Date as a this manth.
-    * @param nextDate The object of the class Date as a next manth.
+    * @param prevDate The object of the class DateEx as a previous manth.
+    * @param mainDate The object of the class DateEx as a this manth.
+    * @param nextDate The object of the class DateEx as a next manth.
     * @returns The html string as a title.
     */
     createTitleHTMLString( prevDate:CheckedDates.DateEx, mainDate:CheckedDates.DateEx, nextDate:CheckedDates.DateEx ): string{
@@ -70,7 +70,7 @@ export class TableCreator{
 
     /**
     * Create the cell which has number (as a calendar).
-    * @param mainDate The object of the class Date.
+    * @param mainDate The object of the class DateEx.
     * @param lastDayInMonth The number of the date which this manth has.
     * @param checkedDateList The object of the class CheckedDateList, for coloring cells.
     * @returns The html string as a number cell.
