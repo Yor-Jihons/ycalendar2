@@ -20,7 +20,7 @@ export class YCalendar2{
     */
     private _event:any;
 
-    private _checkedDateList:any;
+    private _checkedDateList:any = null;
 
     /**
     * The constructor.
