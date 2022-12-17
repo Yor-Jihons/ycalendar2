@@ -25,8 +25,17 @@ export class DateEx{
         return this._date.getDate();
     }
 
+    getDay():number{
+        return this._date.getDay();
+    }
+
     toDateString(): string{
         return this._date.toDateString();
+    }
+
+    createLastDateEx(): DateEx{
+        let tmp = new Date( this._date.getFullYear(), this._date.getMonth() + 1, 0 );
+    return new DateEx( tmp.getFullYear(), tmp.getMonth() + 1, tmp.getDate() );
     }
 }
 

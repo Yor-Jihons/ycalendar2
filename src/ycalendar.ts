@@ -7,7 +7,7 @@
 */
 
 import * as TableCreation from "./tablecreation";
-
+import * as CheckedDates from "./checkeddates";
 
 
 
@@ -20,7 +20,7 @@ export class YCalendar2{
     */
     private _event:any;
 
-    private _checkedDateList:any;
+    private _checkedDateList:any = null;
 
     /**
     * The constructor.
@@ -50,14 +50,13 @@ export class YCalendar2{
     * @param date The object of the class Date.
     * @param checkedDateList The object of the class CheckedDateList. You can pass null.
     */
-    draw( date:Date ): void{
-        let prevDate = new Date( date.getFullYear(), date.getMonth() + 1, date.getDate() );
+    draw( date:CheckedDates.DateEx ): void{
+        let prevDate = new CheckedDates.DateEx( date.getFullYear(), date.getMonth() - 1, date.getDate() );
 
-        let mainDate_first = new Date( date.getFullYear(), date.getMonth(), 1 );
-        let mainDate_last  = new Date( date.getFullYear(), date.getMonth(), 0 );
+        let mainDate_first = date;
+        let mainDate_last  = date.createLastDateEx();
 
-        let nextDate = new Date( date.getFullYear(), date.getMonth(), date.getDate() );
-        nextDate.setMonth( date.getMonth() + 1 );
+        let nextDate = new CheckedDates.DateEx( date.getFullYear(), date.getMonth() + 1, date.getDate() );
 
         const tableCreator = new TableCreation.TableCreator();
 
@@ -108,7 +107,7 @@ export let ycalendar2 = new YCalendar2();
 * @param month The target month.
 */
 export function ycalendar_prevButton_Click( year:number, month:number ): void{
-    ycalendar2.draw( new Date( year, month, 1 ) );
+    ycalendar2.draw( new CheckedDates.DateEx( year, month, 1 ) );
 }
 
 /**
@@ -117,7 +116,7 @@ export function ycalendar_prevButton_Click( year:number, month:number ): void{
 * @param month The target month.
 */
 export function ycalendar_nextButton_Click( year:number, month:number ): void{
-    ycalendar2.draw( new Date( year, month, 1 ) );
+    ycalendar2.draw( new CheckedDates.DateEx( year, month, 1 ) );
 }
 
 /**
