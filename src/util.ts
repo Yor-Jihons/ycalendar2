@@ -16,6 +16,17 @@ import * as CheckedDates from "./checkeddates";
 */
 export function createClassName( checkedDateList:CheckedDates.CheckedDateList, targetDate:CheckedDates.CheckedDate ): string{
     if( checkedDateList == undefined || checkedDateList == null ) return "yc_unchecked_day";
-    if( checkedDateList.has( targetDate ) == true ) return "yc_checked_day";
+
+    let date = checkedDateList.at( targetDate );
+
+    // If checkDateList doesn't have targetDate, returns as *Unchecked cell*.
+    if( date == null ) return "yc_unchecked_day";
+
+    // If date is positive, returns as *Positive checked cell*.
+    if( date.getType() == CheckedDates.CheckedDateType.Positive ) return "yc_checked_day";
+
+    // If date is negative, returns as *Negative checked cell*.
+    if( date.getType() == CheckedDates.CheckedDateType.Negative ) return "yc_checked_day";
+
 return "yc_unchecked_day";
 }
