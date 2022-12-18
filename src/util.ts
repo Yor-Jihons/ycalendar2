@@ -23,10 +23,10 @@ export function createClassName( checkedDateList:CheckedDates.CheckedDateList, t
     if( date == null ) return "yc_unchecked_day";
 
     // If date is positive, returns as *Positive checked cell*.
-    if( date.getType() == CheckedDates.CheckedDateType.Positive ) return "yc_checked_day";
+    if( date.getType() == CheckedDates.CheckedDateType.Positive ) return "yc_positive_checked_day";
 
     // If date is negative, returns as *Negative checked cell*.
-    if( date.getType() == CheckedDates.CheckedDateType.Negative ) return "yc_checked_day";
+    if( date.getType() == CheckedDates.CheckedDateType.Negative ) return "yc_negative_checked_day";
 
 return "yc_unchecked_day";
 }

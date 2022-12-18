@@ -47,8 +47,18 @@ td.yc_unchecked_day{
 /*
     The cells which is checked.
 */
-td.yc_checked_day{
+td.yc_positive_checked_day{
     background-color: lightgreen;
+    border: 1px solid black;
+    width: 50px;
+    text-align: center;
+}
+
+/*
+    The cells which is checked.
+*/
+td.yc_negative_checked_day{
+    background-color: red;
     border: 1px solid black;
     width: 50px;
     text-align: center;
