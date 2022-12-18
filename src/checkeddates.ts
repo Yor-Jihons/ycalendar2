@@ -6,7 +6,9 @@
 * https://github.com/Yor-Jihons/ycalendar2/blob/main/ycalendar2/LICENSE
 */
 
-
+/**
+* The class, to make it easier to use, which derived from Date.
+*/
 export class DateEx{
     /**
     * The object of the class Date, which this object manages.
