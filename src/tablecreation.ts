@@ -1,3 +1,11 @@
+/**
+* @file
+* @license
+* Copyright (c) 2022 Yor-Jihons
+* Released under the MIT license.
+* https://github.com/Yor-Jihons/ycalendar2/blob/main/ycalendar2/LICENSE
+*/
+
 import * as Util from "./util";
 import * as XEvent from "./event";
 import * as CheckedDates from "./checkeddates";
