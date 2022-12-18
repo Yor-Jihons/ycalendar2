@@ -88,6 +88,14 @@ export class DateEx{
 }
 
 /**
+* Create the object of the class DateEx for today date.
+*/
+export function createTodayDateEx(): DateEx{
+    let today = new Date();
+return new DateEx( today.getFullYear(), today.getMonth() + 1, today.getDate() );
+}
+
+/**
 * The class to put other color as the checked dates, like a schedule.
 */
 export class CheckedDate extends DateEx{
@@ -119,7 +127,13 @@ export class CheckedDate extends DateEx{
     }
 };
 
-
+/**
+* Create the object of the class CheckedDate for today date.
+*/
+export function createTodayCheckedDate(): CheckedDate{
+    let today = new Date();
+return new CheckedDate( today.getFullYear(), today.getMonth() + 1, today.getDate() );
+}
 
 
 /**

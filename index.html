@@ -63,8 +63,14 @@
         YCalendar2.drawYcalendar( new YCalendar2.DateEx( 2022, 12, 1 ), checkedDateList, event );
 
 
-        let obj = new YCalendar2.DateEx( 2022, 12, 2 );
-        console.log( obj.toDateString() );
+        let obj1 = new YCalendar2.DateEx( 2022, 12, 2 );
+        console.log( obj1.toDateString() );
+
+        let obj2 = YCalendar2.createTodayDateEx();
+        console.log( obj2.toDateString() );
+
+        let obj3 = YCalendar2.createTodayCheckedDate();
+        console.log( obj3.toDateString() );
     </script>
 </body>
 </html>
