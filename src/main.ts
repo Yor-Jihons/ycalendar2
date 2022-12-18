@@ -23,6 +23,8 @@ interface YCalendar2{
     CheckedDateList: any;
     createTodayDateEx(): any;
     createTodayCheckedDate(): any;
+    createDateExFromDate( date:Date ): any;
+    createCheckedDateFromDate( date:Date ): any;
     drawYcalendar( date:any, checkedDateList:any, event:any ): void;
     ycalendar_prevButton_Click( year:number, month:number ): void;
     ycalendar_nextButton_Click( year:number, month:number ): void;
@@ -60,6 +62,14 @@ const YCalendar2: YCalendar2 = (() =>{
 
         createTodayCheckedDate: () => {
             return CheckedDates.createTodayCheckedDate();
+        },
+
+        createDateExFromDate: ( date:Date ) => {
+            return CheckedDates.createDateExFromDate( date );
+        },
+
+        createCheckedDateFromDate: ( date:Date ) => {
+            return CheckedDates.createCheckedDateFromDate( date );
         },
 
         drawYcalendar: ( date:any, checkedDateList:any, event:any ) => {
