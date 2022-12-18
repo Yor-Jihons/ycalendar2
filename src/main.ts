@@ -20,6 +20,7 @@ interface YCalendar2{
     YEvent: any;
     DateEx: any;
     CheckedDate: any;
+    CheckedDateType: any;
     CheckedDateList: any;
     createTodayDateEx(): any;
     createTodayCheckedDate(): any;
@@ -40,6 +41,12 @@ declare global {
 
 const YCalendar2: YCalendar2 = (() =>{
     return {
+        CheckedDateType: {
+            Negative: CheckedDates.CheckedDateType.Negative,
+            Unchecked: CheckedDates.CheckedDateType.Unchecked,
+            Positive: CheckedDates.CheckedDateType.Positive,
+        },
+
         YEvent: class extends XEvent.Event{},
 
         DateEx: class extends CheckedDates.DateEx{
@@ -49,8 +56,8 @@ const YCalendar2: YCalendar2 = (() =>{
         },
 
         CheckedDate: class extends CheckedDates.CheckedDate{
-            constructor( year:number, month:number, date:number ){
-                super( year, month, date );
+            constructor( year:number, month:number, date:number, type = CheckedDates.CheckedDateType.Positive ){
+                super( year, month, date, type );
             }
         },
 
@@ -60,8 +67,8 @@ const YCalendar2: YCalendar2 = (() =>{
             return CheckedDates.createTodayDateEx();
         },
 
-        createTodayCheckedDate: () => {
-            return CheckedDates.createTodayCheckedDate();
+        createTodayCheckedDate: ( type:number = CheckedDates.CheckedDateType.Positive ) => {
+            return CheckedDates.createTodayCheckedDate( type );
         },
 
         createDateExFromDate: ( date:Date ) => {
