@@ -12,7 +12,8 @@
 */
 export let CheckedDateType = {
     Negative: -1,
-    Positive:  0,
+    Unchecked: 0,
+    Positive:  1,
 };
 
 
@@ -102,23 +103,35 @@ export class DateEx{
 * The class to put other color as the checked dates, like a schedule.
 */
 export class CheckedDate extends DateEx{
+    private _type:number;
+
     /**
     * The constructor.
     * @param year The year.
     * @param month The month.
     * @param date The date.
+    * @param type The type (negative or positive).
     */
-    constructor( year:number, month:number, date:number ){
+    constructor( year:number, month:number, date:number, type:number = CheckedDateType.Positive ){
         super( year, month, date );
+        this._type = type;
     }
 
     /**
     * Check whether date is same or not.
-    * @param  d The object of the class CheckedDate.
+    * @param d The object of the class CheckedDate.
     * @returns Returns true if d is same, otherwise returns false.
     */
     equals( d:CheckedDate ): boolean{
         return super.equals( d );
+    }
+
+    /**
+    * Get the data of CheckedDateType.
+    * @returns The data of CheckedDateType.
+    */
+    getType(): number{
+        return this._type;
     }
 
     /**
@@ -217,15 +230,15 @@ export function createDateExFromDate( date:Date ): DateEx{
 /**
 * Create the object of the class CheckedDate for today date.
 */
-export function createTodayCheckedDate(): CheckedDate{
+export function createTodayCheckedDate( type:number = CheckedDateType.Positive ): CheckedDate{
     let today = new Date();
-return new CheckedDate( today.getFullYear(), today.getMonth() + 1, today.getDate() );
+return new CheckedDate( today.getFullYear(), today.getMonth() + 1, today.getDate(), type );
 }
 
 /**
 * Create the object of the class CheckedDate, from the object of the Date.
 */
-export function createCheckedDateFromDate( date:Date ): CheckedDate{
-    return new CheckedDate( date.getFullYear(), date.getMonth() + 1, date.getDate() );
+export function createCheckedDateFromDate( date:Date, type:number = CheckedDateType.Positive ): CheckedDate{
+    return new CheckedDate( date.getFullYear(), date.getMonth() + 1, date.getDate(), type );
 }
 
