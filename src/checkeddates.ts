@@ -8,6 +8,15 @@
 
 
 /**
+* The enums to indicate whether the CheckedDate is positive meanings or not.
+*/
+export let CheckedDateType = {
+    Negative: -1,
+    Positive:  0,
+};
+
+
+/**
 * The class, to make it easier to use, which derived from Date.
 */
 export class DateEx{
