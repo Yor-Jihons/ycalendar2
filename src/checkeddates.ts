@@ -7,6 +7,9 @@
 */
 
 
+/**
+* The class, to make it easier to use, which derived from Date.
+*/
 export class DateEx{
     /**
     * The object of the class Date, which this object manages.
@@ -85,6 +88,7 @@ export class DateEx{
     }
 }
 
+
 /**
 * The class to put other color as the checked dates, like a schedule.
 */
@@ -116,8 +120,6 @@ export class CheckedDate extends DateEx{
         return super.toDateString();
     }
 };
-
-
 
 
 /**
@@ -185,3 +187,36 @@ export class CheckedDateList{
         alert( txt );
     }
 };
+
+
+/**
+* Create the object of the class DateEx for today date.
+*/
+export function createTodayDateEx(): DateEx{
+    let today = new Date();
+return new DateEx( today.getFullYear(), today.getMonth() + 1, today.getDate() );
+}
+
+/**
+* Create the object of the class DateEx, from the object of the Date.
+*/
+export function createDateExFromDate( date:Date ): DateEx{
+    return new DateEx( date.getFullYear(), date.getMonth() + 1, date.getDate() );
+}
+
+
+/**
+* Create the object of the class CheckedDate for today date.
+*/
+export function createTodayCheckedDate(): CheckedDate{
+    let today = new Date();
+return new CheckedDate( today.getFullYear(), today.getMonth() + 1, today.getDate() );
+}
+
+/**
+* Create the object of the class CheckedDate, from the object of the Date.
+*/
+export function createCheckedDateFromDate( date:Date ): CheckedDate{
+    return new CheckedDate( date.getFullYear(), date.getMonth() + 1, date.getDate() );
+}
+
