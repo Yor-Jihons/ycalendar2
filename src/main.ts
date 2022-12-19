@@ -79,7 +79,7 @@ const YCalendar2: YCalendar2 = (() =>{
             return CheckedDates.createCheckedDateFromDate( date, type );
         },
 
-        drawYcalendar: ( date:CheckedDates.CheckedDate, checkedDateList:CheckedDates.CheckedDateList, event:XEvent.Event ) => {
+        drawYcalendar: ( date:CheckedDates.CheckedDate, checkedDateList:CheckedDates.CheckedDateList, event:XEvent.Event ): void => {
             if( checkedDateList !== null ) ycalendars.ycalendar2.setCheckedDateList( checkedDateList );
             if( event !== null ) ycalendars.ycalendar2.setEvent( event );
             ycalendars.ycalendar2.draw( date );
