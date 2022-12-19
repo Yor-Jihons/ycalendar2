@@ -22,10 +22,10 @@ interface YCalendar2{
     CheckedDate: any;
     CheckedDateType: any;
     CheckedDateList: any;
-    createTodayDateEx(): any;
-    createTodayCheckedDate(): any;
-    createDateExFromDate( date:Date ): any;
-    createCheckedDateFromDate( date:Date ): any;
+    createTodayDateEx(): CheckedDates.DateEx;
+    createTodayCheckedDate(): CheckedDates.CheckedDate;
+    createDateExFromDate( date:Date ): CheckedDates.DateEx;
+    createCheckedDateFromDate( date:Date, type:any ): CheckedDates.CheckedDate;
     drawYcalendar( date:any, checkedDateList:any, event:any ): void;
     ycalendar_prevButton_Click( year:number, month:number ): void;
     ycalendar_nextButton_Click( year:number, month:number ): void;
@@ -63,20 +63,20 @@ const YCalendar2: YCalendar2 = (() =>{
 
         CheckedDateList: class extends CheckedDates.CheckedDateList{},
 
-        createTodayDateEx: () => {
+        createTodayDateEx: (): CheckedDates.DateEx => {
             return CheckedDates.createTodayDateEx();
         },
 
-        createTodayCheckedDate: ( type:number = CheckedDates.CheckedDateType.Positive ) => {
+        createTodayCheckedDate: ( type:number = CheckedDates.CheckedDateType.Positive ): CheckedDates.CheckedDate => {
             return CheckedDates.createTodayCheckedDate( type );
         },
 
-        createDateExFromDate: ( date:Date ) => {
+        createDateExFromDate: ( date:Date ): CheckedDates.DateEx => {
             return CheckedDates.createDateExFromDate( date );
         },
 
-        createCheckedDateFromDate: ( date:Date ) => {
-            return CheckedDates.createCheckedDateFromDate( date );
+        createCheckedDateFromDate: ( date:Date, type:any ): CheckedDates.CheckedDate => {
+            return CheckedDates.createCheckedDateFromDate( date, type );
         },
 
         drawYcalendar: ( date:any, checkedDateList:any, event:any ) => {
