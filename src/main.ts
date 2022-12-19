@@ -23,9 +23,9 @@ interface YCalendar2{
     CheckedDateType: any;
     CheckedDateList: any;
     createTodayDateEx(): CheckedDates.DateEx;
-    createTodayCheckedDate(): CheckedDates.CheckedDate;
+    createTodayCheckedDate( type:number ): CheckedDates.CheckedDate;
     createDateExFromDate( date:Date ): CheckedDates.DateEx;
-    createCheckedDateFromDate( date:Date, type:any ): CheckedDates.CheckedDate;
+    createCheckedDateFromDate( date:Date, type:number ): CheckedDates.CheckedDate;
     drawYcalendar( date:any, checkedDateList:any, event:any ): void;
     ycalendar_prevButton_Click( year:number, month:number ): void;
     ycalendar_nextButton_Click( year:number, month:number ): void;
@@ -75,7 +75,7 @@ const YCalendar2: YCalendar2 = (() =>{
             return CheckedDates.createDateExFromDate( date );
         },
 
-        createCheckedDateFromDate: ( date:Date, type:any ): CheckedDates.CheckedDate => {
+        createCheckedDateFromDate: ( date:Date, type:number = CheckedDates.CheckedDateType.Positive ): CheckedDates.CheckedDate => {
             return CheckedDates.createCheckedDateFromDate( date, type );
         },
 
