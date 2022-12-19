@@ -26,7 +26,7 @@ interface YCalendar2{
     createTodayCheckedDate( type:number ): CheckedDates.CheckedDate;
     createDateExFromDate( date:Date ): CheckedDates.DateEx;
     createCheckedDateFromDate( date:Date, type:number ): CheckedDates.CheckedDate;
-    drawYcalendar( date:any, checkedDateList:any, event:any ): void;
+    drawYcalendar( date:CheckedDates.CheckedDate, checkedDateList:CheckedDates.CheckedDateList, event:XEvent.Event ): void;
     ycalendar_prevButton_Click( year:number, month:number ): void;
     ycalendar_nextButton_Click( year:number, month:number ): void;
     ycalender_DoubleClick( year:number, month:number, day:number ): void;
@@ -79,7 +79,7 @@ const YCalendar2: YCalendar2 = (() =>{
             return CheckedDates.createCheckedDateFromDate( date, type );
         },
 
-        drawYcalendar: ( date:any, checkedDateList:any, event:any ) => {
+        drawYcalendar: ( date:CheckedDates.CheckedDate, checkedDateList:CheckedDates.CheckedDateList, event:XEvent.Event ) => {
             if( checkedDateList !== null ) ycalendars.ycalendar2.setCheckedDateList( checkedDateList );
             if( event !== null ) ycalendars.ycalendar2.setEvent( event );
             ycalendars.ycalendar2.draw( date );
