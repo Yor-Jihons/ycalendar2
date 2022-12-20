@@ -16,7 +16,7 @@ export class Event{
     * If some cells double-clicked, this event will run.
     * @param year The year.
     * @param month The month. The value is from 1 to 12.
-    * @param day The date. { 1, 2, 3, ... } // TODO: 修正
+    * @param day The date. The value is from 1 to 31.
     */
     onDoubleClicked( year:number, month:number, day:number ): void{}
 }
