@@ -30,7 +30,7 @@ export class DateEx{
     * Contructor
     * @param year The year the user want to manage.
     * @param month The month the user want to manage. The value must be from 1 to 12.
-    * @param date The date the user want to manage.
+    * @param date The date the user want to manage. The value is from 1 to 31.
     */
     constructor( year:number, month:number, date:number ){
         this._date = new Date( year, month - 1, date, 1, 1, 1, 1 );
@@ -112,7 +112,7 @@ export class CheckedDate extends DateEx{
     * The constructor.
     * @param year The year.
     * @param month The month. The value must be from 1 to 12.
-    * @param date The date.
+    * @param date The date. The value is from 1 to 31.
     * @param type The type (negative or positive). ( def: CheckedDateType.Positive )
     */
     constructor( year:number, month:number, date:number, type:number = CheckedDateType.Positive ){
