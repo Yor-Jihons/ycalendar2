@@ -41,22 +41,47 @@ declare global {
 
 const YCalendar2: YCalendar2 = (() =>{
     return {
+        /**
+        * The enum to indicate whether the positive checked cell or negetive checked cell.
+        */
         CheckedDateType: {
             Negative: CheckedDates.CheckedDateType.Negative,
             Unchecked: CheckedDates.CheckedDateType.Unchecked,
             Positive: CheckedDates.CheckedDateType.Positive,
         },
 
+        /**
+        * The event class for double-click the cells.
+        */
         YEvent: class extends XEvent.Event{},
 
+        /**
+        * The class to manage the date.
+        */
         DateEx: class extends CheckedDates.DateEx{
+            /**
+            * Constructor
+            * @param year The year the user want to manage.
+            * @param month The month the user want to manage. The value must be from 1 to 12.
+            * @param date The date the user want to manage. The value is from 1 to 31. (def: 1)
+            */
             constructor( year:number, month:number, date:number = 1 ){
                 super( year, month, date );
             }
         },
 
+        /**
+        * The class to manage the date with the type.
+        */
         CheckedDate: class extends CheckedDates.CheckedDate{
-            constructor( year:number, month:number, date:number, type = CheckedDates.CheckedDateType.Positive ){
+            /**
+            * Constructor
+            * @param year The year the user want to manage.
+            * @param month The month the user want to manage. The value must be from 1 to 12.
+            * @param date The date the user want to manage. The value is from 1 to 31. (def: 1)
+            * @param type The type (negative or positive). ( def: CheckedDateType.Positive )
+            */
+            constructor( year:number, month:number, date:number = 1, type = CheckedDates.CheckedDateType.Positive ){
                 super( year, month, date, type );
             }
         },
