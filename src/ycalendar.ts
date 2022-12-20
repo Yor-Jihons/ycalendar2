@@ -86,8 +86,8 @@ export class YCalendar2{
     /**
     * The method for the double-click event.
     * @param year The target year.
-    * @param month The target month.
-    * @param day The target date.
+    * @param month The target month. The value is from 1 to 12.
+    * @param day The target date. The value is from 1 to 31.
     */
     onDoubleClicked( year:number, month:number, day:number ){
         if( this._event != null ){
@@ -107,7 +107,7 @@ export let ycalendar2 = new YCalendar2();
 /**
 * The event for prevButton click.
 * @param year The target year.
-* @param month The target month.
+* @param month The target month. The value is from 1 to 12.
 */
 export function ycalendar_prevButton_Click( year:number, month:number ): void{
     ycalendar2.draw( new CheckedDates.DateEx( year, month, 1 ) );
@@ -116,7 +116,7 @@ export function ycalendar_prevButton_Click( year:number, month:number ): void{
 /**
 * The event for nextButton click.
 * @param year The target year.
-* @param month The target month.
+* @param month The target month. The value is from 1 to 12.
 */
 export function ycalendar_nextButton_Click( year:number, month:number ): void{
     ycalendar2.draw( new CheckedDates.DateEx( year, month, 1 ) );
@@ -125,8 +125,8 @@ export function ycalendar_nextButton_Click( year:number, month:number ): void{
 /**
 * The event for the cells doubleclick.
 * @param year The target year.
-* @param month The target month.
-* @param day The target date.
+* @param month The target month. The value is from 1 to 12.
+* @param day The target date. The value is from 1 to 31.
 */
 export function ycalender_DoubleClick( year:number, month:number, day:number ): void{
     ycalendar2.onDoubleClicked( year, month, day );
