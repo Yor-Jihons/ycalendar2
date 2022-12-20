@@ -46,7 +46,7 @@ export class DateEx{
 
     /**
     * Get the month this object managed.
-    * @returns The month this object managed.
+    * @returns The month this object managed. The value is from 1 to 12.
     */
     getMonth():number{
         return this._date.getMonth() + 1;
@@ -54,7 +54,7 @@ export class DateEx{
 
     /**
     * Get the date this object managed.
-    * @returns The date this object managed.
+    * @returns The date this object managed. The value is from 1 to 31.
     */
     getDate():number{
         return this._date.getDate();
