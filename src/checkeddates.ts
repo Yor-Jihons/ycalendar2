@@ -29,7 +29,7 @@ export class DateEx{
     /**
     * Contructor
     * @param year The year the user want to manage.
-    * @param month The month the user want to manage.
+    * @param month The month the user want to manage. The value must be from 1 to 12.
     * @param date The date the user want to manage.
     */
     constructor( year:number, month:number, date:number ){
@@ -103,14 +103,17 @@ export class DateEx{
 * The class to put other color as the checked dates, like a schedule.
 */
 export class CheckedDate extends DateEx{
+    /**
+    * The type { Positive | Negative }
+    */
     private _type:number;
 
     /**
     * The constructor.
     * @param year The year.
-    * @param month The month.
+    * @param month The month. The value must be from 1 to 12.
     * @param date The date.
-    * @param type The type (negative or positive).
+    * @param type The type (negative or positive). ( def: CheckedDateType.Positive )
     */
     constructor( year:number, month:number, date:number, type:number = CheckedDateType.Positive ){
         super( year, month, date );
@@ -212,7 +215,8 @@ export class CheckedDateList{
 
 
 /**
-* Create the object of the class DateEx for today date.
+* Create the object of the class DateEx, which means today's date.
+* @returns The object of the class DateEx, which means today's date.
 */
 export function createTodayDateEx(): DateEx{
     let today = new Date();
@@ -220,15 +224,18 @@ return new DateEx( today.getFullYear(), today.getMonth() + 1, today.getDate() );
 }
 
 /**
-* Create the object of the class DateEx, from the object of the Date.
+* Create the object of the class DateEx, which was made from Date.
+* @param date The source Date.
+* @returns The object of the class DateEx, which was made from Date.
 */
 export function createDateExFromDate( date:Date ): DateEx{
     return new DateEx( date.getFullYear(), date.getMonth() + 1, date.getDate() );
 }
 
-
 /**
-* Create the object of the class CheckedDate for today date.
+* Create the object of the class CheckedDate, which means today's date.
+* @param type The enum { CheckedDateType.Positive | CheckedDateType.Negative }. ( def: CheckedDateType.Positive )
+* @returns The object of the class CheckedDate, which means today's date.
 */
 export function createTodayCheckedDate( type:number = CheckedDateType.Positive ): CheckedDate{
     let today = new Date();
@@ -236,9 +243,11 @@ return new CheckedDate( today.getFullYear(), today.getMonth() + 1, today.getDate
 }
 
 /**
-* Create the object of the class CheckedDate, from the object of the Date.
+* Create the object of the class CheckedDate, which was made from Date.
+* @param date The source Date.
+* @param type The enum { CheckedDateType.Positive | CheckedDateType.Negative }. ( def: CheckedDateType.Positive )
+* @returns The object of the class CheckedDate, which was made from Date.
 */
 export function createCheckedDateFromDate( date:Date, type:number = CheckedDateType.Positive ): CheckedDate{
     return new CheckedDate( date.getFullYear(), date.getMonth() + 1, date.getDate(), type );
 }
-

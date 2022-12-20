@@ -20,6 +20,9 @@ export class YCalendar2{
     */
     private _event:any;
 
+    /**
+    * The object of the class CheckedDateList, which manages the DateEx.
+    */
     private _checkedDateList:any = null;
 
     /**
@@ -41,7 +44,7 @@ export class YCalendar2{
      * The setter for CheckedDateList.
      * @param checkedDateList The object of the class CheckedDateList.
      */
-    setCheckedDateList( checkedDateList:any ): void{
+    setCheckedDateList( checkedDateList:any ): void{ // TODO: 引数を修正
         this._checkedDateList = checkedDateList;
     }
 
