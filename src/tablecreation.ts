@@ -88,7 +88,7 @@ export class TableCreator{
         for( var i = 0; i < lastDayInMonth; i++ ){
             const classname = Util.createClassName( checkedDateList, new CheckedDates.CheckedDate( mainDate.getFullYear(), mainDate.getMonth(), i + 1, CheckedDates.CheckedDateType.Positive ) );
             txt += '<td class="' + classname + '">';
-            txt += '<div ondblclick="YCalendar2.ycalender_DoubleClick(' + mainDate.getFullYear() + ',' + (mainDate.getMonth() + 1) + ',' + (i + 1) + ')">';
+            txt += '<div ondblclick="YCalendar2.ycalender_DoubleClick(' + mainDate.getFullYear() + ',' + mainDate.getMonth() + ',' + (i + 1) + ')">';
             txt += (i + 1);
             txt += '</div>';
             txt += '</td>';
