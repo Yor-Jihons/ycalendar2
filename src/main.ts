@@ -50,7 +50,7 @@ const YCalendar2: YCalendar2 = (() =>{
         YEvent: class extends XEvent.Event{},
 
         DateEx: class extends CheckedDates.DateEx{
-            constructor( year:number, month:number, date:number ){
+            constructor( year:number, month:number, date:number = 1 ){
                 super( year, month, date );
             }
         },
