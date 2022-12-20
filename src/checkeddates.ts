@@ -32,7 +32,7 @@ export class DateEx{
     * @param month The month the user want to manage. The value must be from 1 to 12.
     * @param date The date the user want to manage. The value is from 1 to 31.
     */
-    constructor( year:number, month:number, date:number ){
+    constructor( year:number, month:number, date:number = 1 ){
         this._date = new Date( year, month - 1, date, 1, 1, 1, 1 );
     }
 
