@@ -126,8 +126,8 @@ export function ycalendar_nextButton_Click( year:number, month:number ): void{
 * The event for the cells doubleclick.
 * @param year The target year.
 * @param month The target month. The value is from 1 to 12.
-* @param day The target date. The value is from 1 to 31.
+* @param date The target date. The value is from 1 to 31.
 */
-export function ycalender_DoubleClick( year:number, month:number, day:number ): void{
-    ycalendar2.onDoubleClicked( year, month, day );
+export function ycalender_DoubleClick( year:number, month:number, date:number ): void{
+    ycalendar2.onDoubleClicked( year, month, date );
 }
