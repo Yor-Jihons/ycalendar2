@@ -17,10 +17,10 @@ If you want to use this library, you just put the sub-directory "ycalendar" into
 
 If you don't have them, install.
 
-### Step 2. Install the tools which you need.
+### Step 2. Install the tools which you need. (All you need is to run "npm istall".)
 
 ```
-$ npm install webpack webpack-cli typescript ts-loader --save-dev
+$ npm install
 ```
 
 ### Step 3. Initialize with npm.
