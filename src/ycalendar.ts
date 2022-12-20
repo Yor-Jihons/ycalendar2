@@ -44,7 +44,7 @@ export class YCalendar2{
      * The setter for CheckedDateList.
      * @param checkedDateList The object of the class CheckedDateList.
      */
-    setCheckedDateList( checkedDateList:any ): void{ // TODO: 引数を修正
+    setCheckedDateList( checkedDateList:CheckedDates.CheckedDateList ): void{
         this._checkedDateList = checkedDateList;
     }
 
