@@ -47,30 +47,71 @@
     </script>
 
     <script>
-        // 3. You draw the calendar simply. (If you want a simple calendar.)
-        //YCalendar2.drawYcalendar( new YCalendar2.DateEx( 2022, 12, 1 ), null, null );
+        function showCalendar_as_sample(){
+            // 1. You can draw the calendar simply. (If you want a simple calendar.)
+            YCalendar2.drawYcalendar( new YCalendar2.DateEx( 2022, 12, 1 ), null, null );
 
-        // 4. Create an object of the class CheckedDateList if you want the double-click event.
-        let checkedDateList = new YCalendar2.CheckedDateList();
-        checkedDateList.add( new YCalendar2.CheckedDate( 2022, 12, 16, YCalendar2.CheckedDateType.Positive ) );
+            // 2. Create an object of the class CheckedDateList if you want the double-click event.
+            let checkedDateList = new YCalendar2.CheckedDateList();
+            checkedDateList.add( new YCalendar2.CheckedDate( 2022, 12, 16, YCalendar2.CheckedDateType.Positive ) );
 
-        // You can clear the dates in the CheckedDateList.
-        //checkedDateList.clear();
+            // You can clear the dates in the CheckedDateList.
+            //checkedDateList.clear();
 
-        let event = new YEventEx();
+            let event = new YEventEx();
 
-        // 6. You draw the calenadar.
-        YCalendar2.drawYcalendar( new YCalendar2.DateEx( 2022, 12, 1 ), checkedDateList, event );
+            // 6. You draw the calenadar.
+            YCalendar2.drawYcalendar( new YCalendar2.DateEx( 2022, 12, 1 ), checkedDateList, event );
+        }
+    </script>
 
+    <script>
+        function showSample_4_DateEx(){
+            // How to instantate the object of the class YCalendar2.DateEx normally.
+            let obj1 = new YCalendar2.DateEx( 2022, 12, 2 );
+            console.log( obj1.toDateString() );
 
-        let obj1 = new YCalendar2.DateEx( 2022, 12, 2 );
-        console.log( obj1.toDateString() );
+            // How to instantate the object of the class YCalendar2.DateEx which means today's date.
+            let obj2 = YCalendar2.createTodayDateEx();
+            console.log( obj2.toDateString() );
 
-        let obj2 = YCalendar2.createTodayDateEx();
-        console.log( obj2.toDateString() );
+            // How to instantate the object of the class YCalendar2.DateEx with the object of the Date.
+            let obj3 = YCalendar2.createDateExFromDate( new Date( 2022, 12, 20 ) );
+            console.log( obj2.toDateString() );
+        }
+    </script>
 
-        let obj3 = YCalendar2.createTodayCheckedDate();
-        console.log( obj3.toDateString() );
+    <script>
+        function showSample_4_CheckedDate(){
+            // How to instantate the object of the class YCalendar2.CheckedDate normally.
+            let obj1 = new YCalendar2.CheckedDate( 2022, 12, 2 );
+            console.log( obj1.toDateString() );
+
+            // How to instantate the object of the class YCalendar2.CheckedDate which means today's date.
+            let obj2 = YCalendar2.createTodayCheckedDate();
+            console.log( obj2.toDateString() );
+
+            // How to instantate the object of the class YCalendar2.CheckedDate with the object of the Date.
+            let obj3 = YCalendar2.createCheckedDateFromDate( new Date( 2022, 12, 20 ) );
+            console.log( obj2.toDateString() );
+        }
+    </script>
+
+    <script>
+        function runSample(){
+            // Show calendar as a sample.
+            //showCalendar_as_sample();
+
+            // Show the sample for YCalendar2.DateEx.
+            //showSample_4_DateEx();
+
+            // Show the sample for YCalendar2.CheckedDate.
+            //showSample_4_CheckedDate();
+        }
+    </script>
+
+    <script>
+        runSample();
     </script>
 </body>
 </html>
