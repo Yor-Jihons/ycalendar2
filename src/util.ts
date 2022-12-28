@@ -12,7 +12,9 @@ import * as CheckedDates from "./checkeddates";
 * To create the class name string for the cells.
 * @param checkedDateList The object of the class CheckedDateList, which means the DateEx list you want to check.
 * @param targetDate The object of the class CheckedDate you want to check.
-* @returns "yc_unchecked_day" or "yc_checked_day"
+* @returns Returns "yc_unchecked_day" if the checkedDateList doesn't have targetDate.
+* Returns "yc_positive_checked_day" if the checkedDateList has targetDate and targetDate is meant positive.
+* Returns "yc_negative_checked_day" if the checkedDateList has targetDate and targetDate is meant negative.
 */
 export function createClassName( checkedDateList:CheckedDates.CheckedDateList, targetDate:CheckedDates.CheckedDate ): string{
     if( checkedDateList == undefined || checkedDateList == null ) return "yc_unchecked_day";
