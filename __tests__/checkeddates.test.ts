@@ -1,7 +1,7 @@
 import * as CheckedDates from "../src/checkeddates";
 
 
-describe('Test for util.ts', () => {
+describe('Test for checkeddates.ts', () => {
     test( 'Sample of the CheckedDateType as enums', () => {
         expect( CheckedDates.CheckedDateType.Unchecked ).toBe( 0 );
         expect( CheckedDates.CheckedDateType.Negative ).toBe( -1 );
