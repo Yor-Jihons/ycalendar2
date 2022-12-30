@@ -144,6 +144,8 @@ export class CheckedDate extends DateEx{
     toString(): string{
         return super.toDateString();
     }
+
+    // TODO: Implement the method createLastDateEx.
 };
 
 

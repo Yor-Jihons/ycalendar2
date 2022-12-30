@@ -3,7 +3,7 @@ import * as CheckedDates from "../src/checkeddates";
 
 
 describe('Test for util.ts', () => {
-    test('sample1', () => {
+    test('Sample of the class checkDateList which is empty', () => {
         let checkDateList = new CheckedDates.CheckedDateList();
 
         let ret1 = Util.createClassName( checkDateList, new CheckedDates.CheckedDate( 2022, 12, 28 ) );
@@ -11,7 +11,7 @@ describe('Test for util.ts', () => {
         expect( ret1 ).toBe( "yc_unchecked_day" );
     });
 
-    test('sample2', () => {
+    test('Sample of the class checkDateList which has some data', () => {
         let checkDateList = new CheckedDates.CheckedDateList();
 
         checkDateList.add( new CheckedDates.CheckedDate( 2022, 12, 10 ) );
