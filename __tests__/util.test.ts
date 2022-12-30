@@ -4,15 +4,15 @@ import * as CheckedDates from "../src/checkeddates";
 
 describe('Test for util.ts', () => {
     test('Sample of the class checkDateList which is empty', () => {
-        let checkDateList = new CheckedDates.CheckedDateList();
+        let checkDateList:CheckedDates.CheckedDateList = new CheckedDates.CheckedDateList();
 
-        let ret1 = Util.createClassName( checkDateList, new CheckedDates.CheckedDate( 2022, 12, 28 ) );
+        let ret1:string = Util.createClassName( checkDateList, new CheckedDates.CheckedDate( 2022, 12, 28 ) );
 
         expect( ret1 ).toBe( "yc_unchecked_day" );
     });
 
     test('Sample of the class checkDateList which has some data', () => {
-        let checkDateList = new CheckedDates.CheckedDateList();
+        let checkDateList:CheckedDates.CheckedDateList = new CheckedDates.CheckedDateList();
 
         checkDateList.add( new CheckedDates.CheckedDate( 2022, 12, 10 ) );
         checkDateList.add( new CheckedDates.CheckedDate( 2022, 12, 28, CheckedDates.CheckedDateType.Negative ) );
