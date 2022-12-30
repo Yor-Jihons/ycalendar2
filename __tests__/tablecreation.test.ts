@@ -2,10 +2,8 @@ import * as CheckedDates from "../src/checkeddates";
 import * as TableCreation from "../src/tablecreation";
 
 
-describe('Test for util.ts', () => {
+describe('Test for tablecreation.ts', () => {
     test( 'Sample of the class TableCreator', () => {
-        //expect( CheckedDates.CheckedDateType.Positive ).toBe( 1 );
-
         let creator:TableCreation.TableCreator = new TableCreation.TableCreator();
 
         let prevDate:CheckedDates.DateEx = new CheckedDates.DateEx( 2022, 11 );
