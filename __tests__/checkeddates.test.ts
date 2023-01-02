@@ -8,6 +8,42 @@ describe('Test for checkeddates.ts', () => {
         expect( CheckedDates.CheckedDateType.Positive ).toBe( 1 );
     });
 
+    test( 'Sample of the contructor of the class DateEx with wrong month', () => {
+        try{
+            let obj1 = new CheckedDates.DateEx( 2022, 13, 28 );
+            expect( 1 ).toBe( 2 );
+        }catch( e:any ){
+            expect( e.message ).toBe( "The month value should be from 1 to 12." );
+        }
+    });
+
+    test( 'Sample of the contructor of the class DateEx with wrong date', () => {
+        try{
+            let obj1 = new CheckedDates.DateEx( 2022, 10, 52 );
+            expect( 1 ).toBe( 2 );
+        }catch( e:any ){
+            expect( e.message ).toBe( "The date value should be from 1 to 31." );
+        }
+    });
+
+    test( 'Sample of the contructor of the class CheckedDate with wrong month', () => {
+        try{
+            let obj1 = new CheckedDates.CheckedDate( 2022, 13, 28 );
+            expect( 1 ).toBe( 2 );
+        }catch( e:any ){
+            expect( e.message ).toBe( "The month value should be from 1 to 12." );
+        }
+    });
+
+    test( 'Sample of the contructor of the class CheckedDate with wrong date', () => {
+        try{
+            let obj1 = new CheckedDates.CheckedDate( 2022, 10, 52 );
+            expect( 1 ).toBe( 2 );
+        }catch( e:any ){
+            expect( e.message ).toBe( "The date value should be from 1 to 31." );
+        }
+    });
+
     test('Sample of the class DateEx', () => {
         // 12/28/2022 Wed.
         let obj1:CheckedDates.DateEx = new CheckedDates.DateEx( 2022, 12, 28 );
