@@ -148,7 +148,10 @@ export class CheckedDate extends DateEx{
         return super.toDateString();
     }
 
-    // TODO: Implement the method createLastDateEx.
+    createLastDateEx(): DateEx{
+        let tmp = new Date( super.getFullYear(), super.getMonth() + 1, 0 );
+    return new CheckedDate( tmp.getFullYear(), tmp.getMonth() + 1, tmp.getDate() );
+    }
 };
 
 
