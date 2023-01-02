@@ -33,6 +33,9 @@ export class DateEx{
     * @param date The date the user want to manage. The value is from 1 to 31.
     */
     constructor( year:number, month:number, date:number = 1 ){
+        if( month < 1 || month > 12 ) throw new Error( "The month value should be from 1 to 12." );
+        if( date < 1 || date > 31 ) throw new Error( "The date value should be from 1 to 31." );
+
         this._date = new Date( year, month - 1, date, 1, 1, 1, 1 );
     }
 
