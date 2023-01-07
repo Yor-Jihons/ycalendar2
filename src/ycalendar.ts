@@ -66,15 +66,23 @@ export class YCalendar2{
             throw new Error( "The div area which the ycalendar2 shows, is something wrong! That is null!" );
         }
         let prevDateMonth:number = (date.getMonth() - 1);
-        if( prevDateMonth <= 0 ) prevDateMonth = 12;
-        let prevDate:CheckedDates.DateEx = new CheckedDates.DateEx( date.getFullYear(), prevDateMonth, date.getDate() );
+        let prevDateYear:number  = date.getFullYear();
+        if( prevDateMonth <= 0 ){
+            prevDateMonth = 12;
+            prevDateYear--;
+        }
+        let prevDate:CheckedDates.DateEx = new CheckedDates.DateEx( prevDateYear, prevDateMonth, date.getDate() );
 
         let mainDate_first:CheckedDates.DateEx = date;
         let mainDate_last:CheckedDates.DateEx  = date.createLastDateEx();
 
         let nextDateMonth:number = (date.getMonth() + 1);
-        if( nextDateMonth >= 13 ) nextDateMonth = 1;
-        let nextDate = new CheckedDates.DateEx( date.getFullYear(), nextDateMonth, date.getDate() );
+        let nextDateYear:number  = date.getFullYear();
+        if( nextDateMonth >= 13 ){
+            nextDateMonth = 1;
+            nextDateYear++;
+        }
+        let nextDate = new CheckedDates.DateEx( nextDateYear, nextDateMonth, date.getDate() );
 
         const tableCreator:TableCreation.TableCreator = new TableCreation.TableCreator();
 
