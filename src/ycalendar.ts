@@ -30,6 +30,15 @@ export class YCalendar2{
     */
     constructor(){
         this._event = null;
+        this.setIdString( "ycalendar2" );
+    }
+
+    /**
+    * The setter for the id (of the div tag).
+    * @param id_name The string ID (of the div tag).
+    */
+    setIdString( id_name:string ): void{
+        calendar_area = document.getElementById( id_name );
     }
 
     /**
@@ -51,9 +60,11 @@ export class YCalendar2{
     /**
     * Draw the ycalendar.
     * @param date The object of the class Date.
-    * @param checkedDateList The object of the class CheckedDateList. You can pass null.
     */
     draw( date:CheckedDates.DateEx ): void{
+        if( calendar_area === null ){
+            throw new Error( "The div area which the ycalendar2 shows, is something wrong! That is null!" );
+        }
         let prevDateMonth:number = (date.getMonth() - 1);
         if( prevDateMonth <= 0 ) prevDateMonth = 12;
         let prevDate:CheckedDates.DateEx = new CheckedDates.DateEx( date.getFullYear(), prevDateMonth, date.getDate() );
@@ -104,7 +115,7 @@ export class YCalendar2{
 /**
 * The main object for the class div#ycalendar.(for HTML)
 */
-let calendar_area:any = document.getElementById( "ycalendar2" );
+let calendar_area:any = null;
 
 export let ycalendar2 = new YCalendar2();
 
