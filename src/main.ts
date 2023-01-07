@@ -26,7 +26,7 @@ interface YCalendar2{
     createTodayCheckedDate( type:number ): CheckedDates.CheckedDate;
     createDateExFromDate( date:Date ): CheckedDates.DateEx;
     createCheckedDateFromDate( date:Date, type:number ): CheckedDates.CheckedDate;
-    drawYcalendar( date:CheckedDates.CheckedDate, checkedDateList:CheckedDates.CheckedDateList, event:XEvent.Event ): void;
+    drawYcalendar( date:CheckedDates.CheckedDate, id_name:string, checkedDateList:CheckedDates.CheckedDateList, event:XEvent.Event ): void;
     ycalendar_prevButton_Click( year:number, month:number ): void;
     ycalendar_nextButton_Click( year:number, month:number ): void;
     ycalender_DoubleClick( year:number, month:number, day:number ): void;
@@ -130,10 +130,12 @@ const YCalendar2: YCalendar2 = (() =>{
         /**
         * Draw the ycalendar.
         * @param date The object of the class CheckedDate.
+        * @param id_name The id-name string of the tag div, where the ycalendar2 shows.
         * @param checkedDateList The object of the class CheckedDateList. You can pass null.
         * @param event The event which is derived from the class YEvent.
         */
-        drawYcalendar: ( date:CheckedDates.CheckedDate, checkedDateList:CheckedDates.CheckedDateList, event:XEvent.Event ): void => {
+        drawYcalendar: ( date:CheckedDates.CheckedDate, id_name:string, checkedDateList:CheckedDates.CheckedDateList, event:XEvent.Event ): void => {
+            if( id_name !== null && id_name !== undefined ) ycalendars.ycalendar2.setIdString( id_name );
             if( checkedDateList !== null ) ycalendars.ycalendar2.setCheckedDateList( checkedDateList );
             if( event !== null ) ycalendars.ycalendar2.setEvent( event );
             ycalendars.ycalendar2.draw( date );

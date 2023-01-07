@@ -22,7 +22,7 @@
     <p>This is test for the ycalendar2.</p>
 
     <!-- 1. Put div area with id="ycalendar". -->
-    <div id="ycalendar2"></div>
+    <div id="ycalendar2_1"></div>
 
     <!-- 2. Include the js-file and the css-file which ycalendar requires. -->
     <script src="./ycalendar2/ycalendar2.js"></script>
@@ -51,7 +51,7 @@
     <script>
         function showCalendar_as_sample() {
             // 1. You can draw the calendar simply. (If you want a simple calendar.)
-            //YCalendar2.drawYcalendar(new YCalendar2.DateEx(2022, 12, 1));
+            YCalendar2.drawYcalendar(new YCalendar2.DateEx(2022, 12, 1), "ycalendar2_1");
 
             // 2. Create an object of the class CheckedDateList if you want the double-click event.
             let checkedDateList = new YCalendar2.CheckedDateList();
@@ -62,7 +62,7 @@
             let event = new YEventEx();
 
             // 6. You draw the calenadar.
-            YCalendar2.drawYcalendar(new YCalendar2.DateEx(2022, 12, 1), checkedDateList, event);
+            YCalendar2.drawYcalendar(new YCalendar2.DateEx(2022, 12, 1), "ycalendar2_1", checkedDateList, event);
         }
     </script>
 
