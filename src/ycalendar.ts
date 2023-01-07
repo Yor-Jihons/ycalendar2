@@ -54,28 +54,32 @@ export class YCalendar2{
     * @param checkedDateList The object of the class CheckedDateList. You can pass null.
     */
     draw( date:CheckedDates.DateEx ): void{
-        let prevDate = new CheckedDates.DateEx( date.getFullYear(), date.getMonth() - 1, date.getDate() );
+        let prevDateMonth:number = (date.getMonth() - 1);
+        if( prevDateMonth <= 0 ) prevDateMonth = 12;
+        let prevDate:CheckedDates.DateEx = new CheckedDates.DateEx( date.getFullYear(), prevDateMonth, date.getDate() );
 
-        let mainDate_first = date;
-        let mainDate_last  = date.createLastDateEx();
+        let mainDate_first:CheckedDates.DateEx = date;
+        let mainDate_last:CheckedDates.DateEx  = date.createLastDateEx();
 
-        let nextDate = new CheckedDates.DateEx( date.getFullYear(), date.getMonth() + 1, date.getDate() );
+        let nextDateMonth:number = (date.getMonth() + 1);
+        if( nextDateMonth >= 13 ) nextDateMonth = 1;
+        let nextDate = new CheckedDates.DateEx( date.getFullYear(), nextDateMonth, date.getDate() );
 
-        const tableCreator = new TableCreation.TableCreator();
+        const tableCreator:TableCreation.TableCreator = new TableCreation.TableCreator();
 
-        let htmlText = "";
+        let htmlText:string = "";
         htmlText += tableCreator.createTitleHTMLString( prevDate, mainDate_first, nextDate );
 
         htmlText += tableCreator.createTableHeaderHtmlString();
 
-        const NUM_OF_EMPTY_CELL = mainDate_first.getDay();
+        const NUM_OF_EMPTY_CELL:number = mainDate_first.getDay();
         htmlText += tableCreator.createEmptyCells( NUM_OF_EMPTY_CELL );
 
-        const lastDayInMonth   = mainDate_last.getDate();
+        const lastDayInMonth:number   = mainDate_last.getDate();
         htmlText += tableCreator.createMainCells( mainDate_first, lastDayInMonth, this._checkedDateList );
 
-        const MAX_CELL       = 42;
-        let num_of_tail_cell = MAX_CELL - (NUM_OF_EMPTY_CELL + lastDayInMonth);
+        const MAX_CELL:number = 42;
+        let num_of_tail_cell  = MAX_CELL - (NUM_OF_EMPTY_CELL + lastDayInMonth);
         htmlText += tableCreator.createEmptyCells( num_of_tail_cell );
 
         htmlText += tableCreator.createTableFooterHtmlString();
