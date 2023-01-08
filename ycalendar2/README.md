@@ -1,4 +1,4 @@
-# ycalendar 1.0.1
+# ycalendar 1.0.2
 
 ## 1. Requirements
 
@@ -23,6 +23,8 @@ This library is released under the MIT License. See also [LICENCE which included
     - ycalendar2 ver.1.0.0 Released.
 * 2023/01/07 : ver.1.0.1
     - Modified so that the users can designate the id-name of the tag div.
+* 2023/01/08 : ver.1.0.2
+    - Modified so that the users can show the ycalendar2 dynamically.
 
 ## 7. Contact
 

@@ -24,6 +24,9 @@
     <!-- 1. Put div area with id="ycalendar". -->
     <div id="ycalendar2_1"></div>
 
+    <!-- If you want to show the ycalendar2 dynamically... -->
+    <div id="dynamic_area1"></div>
+
     <!-- 2. Include the js-file and the css-file which ycalendar requires. -->
     <script src="./ycalendar2/ycalendar2.js"></script>
     <link rel="stylesheet" href="./ycalendar2/styles.css" />
@@ -67,6 +70,34 @@
     </script>
 
     <script>
+        function showCalendarDynamically_as_sample() {
+            const ycalendar2_id = "ycalendar2_dynamically";
+
+            // You can create the ycalendar2 dynamically.
+            //const element = document.createElement("ycalendarX");
+            //element.innerHTML = '<div id="ycalendarX"></div>';
+
+            // (or this:)
+            const element = document.createElement("div");
+            element.id = ycalendar2_id;
+
+            let area1 = document.getElementById("dynamic_area1");
+            area1.appendChild(element);
+
+            // 2. Create an object of the class CheckedDateList if you want the double-click event.
+            let checkedDateList = new YCalendar2.CheckedDateList();
+            checkedDateList.add(new YCalendar2.CheckedDate(2022, 12, 16, YCalendar2.CheckedDateType.Positive));
+
+            // You can clear the dates in the CheckedDateList.
+            //checkedDateList.clear();
+            let event = new YEventEx();
+
+            // 6. You draw the calenadar.
+            YCalendar2.drawYcalendar(new YCalendar2.DateEx(2022, 12, 1), ycalendar2_id, checkedDateList, event);
+        }
+    </script>
+
+    <script>
         function showSample_4_DateEx() {
             // How to instantate the object of the class YCalendar2.DateEx normally.
             let obj1 = new YCalendar2.DateEx(2022, 12, 2);
@@ -101,7 +132,10 @@
     <script>
         function runSample() {
             // Show calendar as a sample.
-            showCalendar_as_sample();
+            //showCalendar_as_sample();
+
+            // Show calendar dynamically as a sample.
+            showCalendarDynamically_as_sample();
 
             // Show the sample for YCalendar2.DateEx.
             //showSample_4_DateEx();
