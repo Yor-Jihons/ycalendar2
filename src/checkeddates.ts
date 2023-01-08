@@ -96,7 +96,7 @@ export class DateEx{
     * @returns The object of this class, which means the end of the month.
     */
     createLastDateEx(): DateEx{
-        let tmp = new Date( this._date.getFullYear(), this._date.getMonth() + 1, 0 );
+        let tmp = new Date( this.getFullYear(), this.getMonth(), 0 );
     return new DateEx( tmp.getFullYear(), tmp.getMonth() + 1, tmp.getDate() );
     }
 }
@@ -148,9 +148,13 @@ export class CheckedDate extends DateEx{
         return super.toDateString();
     }
 
+    /**
+    * Create the object of this class, which means the end of the month.
+    * @returns The object of this class, which means the end of the month.
+    */
     createLastDateEx(): DateEx{
-        let tmp = new Date( super.getFullYear(), super.getMonth() + 1, 0 );
-    return new CheckedDate( tmp.getFullYear(), tmp.getMonth() + 1, tmp.getDate() );
+        const superDateEx1 = super.createLastDateEx();
+    return new CheckedDate( superDateEx1.getFullYear(), superDateEx1.getMonth(), superDateEx1.getDate() );
     }
 };
 
