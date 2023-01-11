@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<!--
+    @license
+    Copyright (c) 2022 Yor-Jihons
+    Released under the MIT license.
+    https://github.com/Yor-Jihons/ycalendar2/blob/main/ycalendar2/LICENSE
+-->
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The smaple2 of the ycalendar2</title>
+
+    <script src="./designs/js/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="designs/css/style.css" />
+</head>
+
+<body onload="Button1_Click()">
+    <h1>The sample of the ycalendar2</h1>
+    <p>This is test for the ycalendar2.</p>
+
+    <!-- If you want to show the ycalendar2 dynamically... -->
+    <div id="dynamic_area1"></div>
+
+    <button id="button1" onclick="Button1_Click()">Show the ycalendar2.</button>
+    <button id="button2" onclick="Button2_Click()">Hide the ycalendar2.</button>
+
+    <!-- 2. Include the js-file and the css-file which ycalendar requires. -->
+    <script src="./ycalendar2/ycalendar2.js"></script>
+    <link rel="stylesheet" href="./ycalendar2/styles.css" />
+
+    <!-- If you want to cumstomize the css, add the other css-file which you prepared. -->
+    <link rel="stylesheet" href="./designs/css/customized_yc_sytles.css" />
+
+    <script>
+        /**
+         * The event you want to catch.
+         */
+        class YEventEx extends YCalendar2.YEvent {
+            /**
+             * The event when the cells double-clicked.
+             * @param {*} year The number which means the year.
+             * @param {*} month The number which means the month. The value is from 1 to 12.
+             * @param {*} date The number which means the date. The value is from 1 to 31.
+             */
+            onDoubleClicked(year, month, date) {
+                console.log("EVENT: ycalender_DoubleClick on " + year + "/" + month + "/" + date);
+            }
+        }
+    </script>
+
+    <script>
+        function showCalendarDynamically_as_sample() {
+            const ycalendar2_id = "ycalendar2_dynamically";
+
+            // You can create the ycalendar2 dynamically.
+            //const element = document.createElement("ycalendarX");
+            //element.innerHTML = '<div id="ycalendarX"></div>';
+
+            // (or this:)
+            const element = document.createElement("div");
+            element.id = ycalendar2_id;
+
+            let area1 = document.getElementById("dynamic_area1");
+            area1.appendChild(element);
+
+            // 2. Create an object of the class CheckedDateList if you want the double-click event.
+            let checkedDateList = new YCalendar2.CheckedDateList();
+            checkedDateList.add(new YCalendar2.CheckedDate(2022, 12, 16, YCalendar2.CheckedDateType.Positive));
+
+            // You can clear the dates in the CheckedDateList.
+            //checkedDateList.clear();
+            let event = new YEventEx();
+
+            // 6. You draw the calenadar.
+            YCalendar2.drawYcalendar(new YCalendar2.DateEx(2022, 12, 1), ycalendar2_id, checkedDateList, event);
+        }
+    </script>
+
+    <script>
+        function Button1_Click() {
+            showCalendarDynamically_as_sample();
+            document.getElementById("button1").style.visibility = "hidden";
+            document.getElementById("button2").style.visibility = "visible";
+        }
+
+        function Button2_Click() {
+            const ycalendar2_id = "ycalendar2_dynamically";
+
+            // You can create the ycalendar2 dynamically.
+            const element = document.getElementById("ycalendar2_dynamically");
+
+            let area1 = document.getElementById("dynamic_area1");
+            area1.removeChild(element);
+
+            document.getElementById("button1").style.visibility = "visible";
+            document.getElementById("button2").style.visibility = "hidden";
+        }
+    </script>
+</body>
+
+</html>
