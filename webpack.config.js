@@ -3,6 +3,8 @@ module.exports = {
     // If you put "development", this product will include some infos.
     mode: 'development',
 
+    devtool: 'source-map',
+
     // The entry point.
     entry: './src/main.ts',
 
@@ -15,14 +17,12 @@ module.exports = {
     },
 
     module: {
-        rules: [
-            {
-                // When it is a ts-file,
-                test: /\.ts$/,
-                // Compile it as TypeScript.
-                use: 'ts-loader',
-            },
-        ],
+        rules: [{
+            // When it is a ts-file,
+            test: /\.ts$/,
+            // Compile it as TypeScript.
+            use: 'ts-loader',
+        }, ],
     },
     resolve: {
         extensions: [
